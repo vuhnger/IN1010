@@ -34,9 +34,6 @@ public class Hovedprogram {
 
         smestadBarneTog.hentForste();
         smestadBarneTog.hentSiste();
-    
-        smestadBarneTog.hentAlleBarn(minBarneLste);
-        smestadBarneTog.skrivUt();
 
     }
 

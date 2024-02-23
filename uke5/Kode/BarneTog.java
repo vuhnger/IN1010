@@ -16,30 +16,10 @@ public class BarneTog implements Enkeltlenket<Barn>{
         siste = b;
     }
 
-    public Barn fjern(String navn){
-
-        if (forste.hentNavn().equals(navn)){
-            Barn tmp = forste;
-            forste = forste.neste; // Sette forste til null ved 1 element i listen
-            return tmp;
-        }
-    
-        // Iterer over barna til du finner barnet
-        Barn denne = forste;
-        while(denne != null){
-            
-            if (denne.hentNavn().equals(navn)){
-                hjelpeFjern(denne);
-                return denne;
-            }
-            denne = denne.neste;
-        }
-        System.out.println("Fant ikke " + navn + " i barneToget.");
-        return null;
-    }
-
-    void hjelpeFjern(Barn b){
-        b.settNeste(b.neste.neste);
+    public Barn fjernForste(){
+        Barn tmp = forste;
+        forste.settNeste(forste.neste);
+        return tmp;
     }
     
     public void skrivUt(){
@@ -58,12 +38,6 @@ public class BarneTog implements Enkeltlenket<Barn>{
     public void fyllOpp(ArrayList<Barn> barneliste){
         for (Barn b : barneliste){
             leggTilBakerst(b);
-        }
-    }
-
-    public void hentAlleBarn(ArrayList<Barn> barneliste){
-        for (Barn b : barneliste){
-            fjern(b.hentNavn());
         }
     }
 
