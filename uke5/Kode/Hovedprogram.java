@@ -24,7 +24,6 @@ public class Hovedprogram {
         return barnListe;
     }
 
-    
     public static void main(String[] args) {
 
         BarneTog smestadBarneTog = new BarneTog();
