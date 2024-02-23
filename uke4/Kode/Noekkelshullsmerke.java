@@ -1,0 +1,4 @@
+
+interface Noekkelhullsmerke{
+    boolean erNoekkelhullsmerket();
+}
