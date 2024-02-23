@@ -20,13 +20,13 @@ public class BarneTog implements Enkeltlenket<Barn>{
 
         if (forste.hentNavn().equals(navn)){
             Barn tmp = forste;
-            forste = forste.neste;
+            forste = forste.neste; // Sette forste til null ved 1 element i listen
             return tmp;
         }
     
         // Iterer over barna til du finner barnet
         Barn denne = forste;
-        while(denne.neste != null){
+        while(denne != null){
             
             if (denne.hentNavn().equals(navn)){
                 hjelpeFjern(denne);
@@ -38,11 +38,9 @@ public class BarneTog implements Enkeltlenket<Barn>{
         return null;
     }
 
-
     void hjelpeFjern(Barn b){
         b.settNeste(b.neste.neste);
     }
-
     
     public void skrivUt(){
 
