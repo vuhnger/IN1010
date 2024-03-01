@@ -52,25 +52,8 @@ public class Lenkeliste<T> implements Iterable<T> {
     }
   }
 
-  @Override
-  public Iterator<T> iterator() {
-    return new LenkelisteIterator();
-  }
+  // Lage iterator! :D
 
-  class LenkelisteIterator implements Iterator<T> {
-    Node denne = forste;
-
-    @Override
-    public boolean hasNext() {
-      return denne != null;
-    }
-
-    @Override
-    public T next() {
-      T data = denne.data;
-      denne = denne.neste;
-      return data;
-    }
-  }
+  
 
 }

@@ -1,5 +1,3 @@
-import java.util.Iterator;
-
 public class Hovedprogram {
 
     public static void main(String[] args) {
@@ -15,14 +13,7 @@ public class Hovedprogram {
         lenkeliste.settInn(dummyStrings[i]);
       }
   
-      // Sjekk innholdet ved å iterere gjennom med for-each!!
-
-      Iterator<String> it = lenkeliste.iterator();
-
-      while (it.hasNext()){
-        System.out.print(it.next() + " ");
-      }
-
+      
     }
   }
   
