@@ -12,7 +12,7 @@ class Recursion {
     }
   
     public static int eksponent(int x, int eksponent){
-      if (eksponent < 1) return 1;
+      if (eksponent < 1) return 1; // x^0 = 1
       return x * eksponent(x, eksponent - 1);
     }
   
