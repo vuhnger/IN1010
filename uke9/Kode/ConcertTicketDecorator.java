@@ -1,8 +1,7 @@
 // The ConcertTicket decorator
 abstract class ConcertTicketDecorator implements ConcertTicket {
     private final ConcertTicket decoratedTicket;
-
-
+    
     public ConcertTicketDecorator(ConcertTicket decoratedTicket){
         this.decoratedTicket = decoratedTicket;
     }

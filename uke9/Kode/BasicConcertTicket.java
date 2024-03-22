@@ -10,4 +10,9 @@ class BasicConcertTicket implements ConcertTicket {
     public double getCost() {
          return 450.0;
     }
+
+
+    void test(){
+        System.out.println("hei");
+    }
 }
