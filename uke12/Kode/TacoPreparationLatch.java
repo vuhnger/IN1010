@@ -1,6 +1,11 @@
 import java.util.concurrent.CountDownLatch;
 
 
+/*
+ * Her bruker vi barrieren CountDownLatch istedenfor join(). CountDownLatch-objekter
+ * kan deles mellom flere tråder. 
+ */
+
 public class TacoPreparationLatch {
     public static void main(String[] args) {
         CountDownLatch latch = new CountDownLatch(2);
