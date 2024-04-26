@@ -24,5 +24,25 @@ public class Fargeendring {
         vindu.setFocusable(true); //Anbefalt for aa la vinduet motta tastetrykk
         vindu.setLocationRelativeTo(null); 
         vindu.setVisible(true);
+
+
+        new Thread(
+            new Runnable() {
+                @Override
+                public void run(){
+                    while (true){
+                        try {
+                            Thread.sleep(350);
+                            vindu.getContentPane().setBackground(
+                                farger[tilfeldig.nextInt(farger.length)]
+                            );
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
+                            System.exit(1);
+                        }
+                    }
+                }
+            }
+        ).start();
     }
 }
