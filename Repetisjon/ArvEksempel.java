@@ -4,31 +4,33 @@ interface Alarm {
     void aktiverAlarm();
 }
 
-abstract class Kjoeretoey {
-    static int antallKjoeretoey = 0;
-
+abstract class Kjoretoy {
+    static int antallKjoretoy = 0;
+    int hastighet;
     protected String merke, reg;
 
-    Kjoeretoey(String merke, String reg) {
+    Kjoretoy(String merke, String reg, int hasighet) {
         this.merke = merke;
         this.reg = reg;
-        antallKjoeretoey++;
+        this.hastighet = hasighet;
+        antallKjoretoy++;
     }
 
-    void kjoer() {
-        System.out.println("Et kjoeretoey kjoerer!");
+    void kjor(int tid) {
+        System.out.println(reg + " kjorte " + (tid * hastighet) + " km");
     }
 }
 
-class Bil extends Kjoeretoey implements Alarm {
+class Bil extends Kjoretoy implements Alarm {
 
     Bil(String merke, String reg) {
-        super(merke, reg);
+        super(merke, reg, 50);
     }
 
     @Override
-    void kjoer() {
-        System.out.println("Bil " + reg + " kjoerer!");
+    void kjor(int tid) {
+        System.out.print("Bil ");
+        super.kjor(tid);
     }
 
     @Override
@@ -37,15 +39,16 @@ class Bil extends Kjoeretoey implements Alarm {
     }
 }
 
-class Motorsykkel extends Kjoeretoey {
+class Motorsykkel extends Kjoretoy {
 
     Motorsykkel(String merke, String reg) {
-        super(merke, reg);
+        super(merke, reg, 80);
     }
 
     @Override
-    void kjoer(){
-        System.out.println("Motorsykkel " + reg + " kjorer!");
+    void kjor(int tid){
+        System.out.print("Motorsykkel ");
+        super.kjor(tid);
     }
 
     void wheelie() {
@@ -54,20 +57,20 @@ class Motorsykkel extends Kjoeretoey {
 }
 
 class Garasje {
-    private ArrayList<Kjoeretoey> kjoeretoey = new ArrayList<>();
+    private ArrayList<Kjoretoy> kjoretoy = new ArrayList<>();
 
-    Garasje(Kjoeretoey... samling) {
-        for (Kjoeretoey k : samling) {
-            kjoeretoey.add(k);
+    Garasje(Kjoretoy... samling) {
+        for (Kjoretoy k : samling) {
+            kjoretoy.add(k);
         }
     }
 
-    void settInn(Kjoeretoey k) {
-        kjoeretoey.add(k);
+    void settInn(Kjoretoy k) {
+        kjoretoy.add(k);
     }
 
-    ArrayList<Kjoeretoey> hentKjoeretoey(){
-        return kjoeretoey;
+    ArrayList<Kjoretoy> hentKjoretoy(){
+        return kjoretoy;
     }
 }
 
@@ -78,9 +81,9 @@ public class ArvEksempel {
                 new Motorsykkel("TOYOTA", "DE899")
                 );
 
-        for (Kjoeretoey k : g.hentKjoeretoey()){
+        for (Kjoretoy k : g.hentKjoretoy()){
 
-            k.kjoer();
+            k.kjor(50);
             
             if (k instanceof Motorsykkel){
                 ((Motorsykkel) k).wheelie();
@@ -91,6 +94,9 @@ public class ArvEksempel {
             }
         }
 
-        System.out.println("Antall kjoretoy som eksisterer: " + Kjoeretoey.antallKjoeretoey);
+        System.out.println("Antall kjoretoy som eksisterer: " + Kjoretoy.antallKjoretoy);
     }
 }
+
+
+
