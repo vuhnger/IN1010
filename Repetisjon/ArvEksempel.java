@@ -65,7 +65,7 @@ class Garasje {
         }
     }
 
-    void settInn(Kjoretoy k) {
+    void parker(Kjoretoy k) {
         kjoretoy.add(k);
     }
 
